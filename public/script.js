@@ -4,8 +4,8 @@ document.getElementById("connect-wallet").addEventListener("click", async () => 
 
     if (!phantom || !phantom.isPhantom) {
         if (isMobile) {
-            // Відкриваємо додаток Phantom через deep link
-            window.location.href = "https://phantom.app/ul/v1/connect";
+            // Використовуємо deep link для мобільних пристроїв
+            window.location.href = "https://phantom.app/ul/v1/connect?app_url=" + encodeURIComponent(window.location.href);
         } else {
             alert("Будь ласка, встановіть Phantom-гаманець!");
         }
@@ -26,6 +26,7 @@ document.getElementById("connect-wallet").addEventListener("click", async () => 
         console.error("Помилка підключення:", error);
     }
 });
+
 
 
 
