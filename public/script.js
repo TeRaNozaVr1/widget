@@ -1,11 +1,11 @@
 document.getElementById("connect-wallet").addEventListener("click", async () => {
     const phantom = window.solana;
-
+    
     if (!phantom || !phantom.isPhantom) {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
-            // Відкриває Phantom через deep link на мобільному
-            window.location.href = "https://phantom.app/ul/v1/connect";
+            // Deep link для мобільних пристроїв
+            window.location.href = "https://phantom.app/ul/v1/connect?redirect_link=" + encodeURIComponent(window.location.href);
         } else {
             alert("Будь ласка, встановіть Phantom-гаманець!");
         }
@@ -13,7 +13,8 @@ document.getElementById("connect-wallet").addEventListener("click", async () => 
     }
 
     try {
-        const response = await phantom.connect();
+        // Підключення через розширення
+        const response = await phantom.connect({ onlyIfTrusted: false });
         document.getElementById("wallet-address").value = response.publicKey.toString();
         console.log("Гаманець підключено:", response.publicKey.toString());
     } catch (error) {
