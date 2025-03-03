@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обмін USDT/USDC</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="widget">
+        <h2>Обмін USDT/USDC</h2>
+        <button id="connect-wallet">Підключити гаманець</button>
+        <input type="text" id="wallet-address" placeholder="Адреса гаманця" readonly>
+        
+        <select id="currency">
+            <option value="USDT">USDT</option>
+            <option value="USDC">USDC</option>
+        </select>
+        <input type="number" id="amount" placeholder="Сума" min="1">
+        <button id="swap-button">Обміняти</button>
+        
+        <p id="status-message"></p>
+    </div>
+</body>
+</html>
