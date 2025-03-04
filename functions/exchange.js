@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const connection = new web3.Connection("https://mainnet.helius-rpc.com/?api-key=62d6c036-5371-452d-b852-3d6f6823e08f","confirmed");
 const web3 = require("@solana/web3.js");
 require("dotenv").config();
 
