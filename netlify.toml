@@ -1,12 +1,12 @@
 [build]
-  functions = "netlify/functions"
+  functions = "widget/functions"
 
 [dev]
-  functions = "netlify/functions"
+  functions = "widget/functions"
 
 
 [[headers]]
-  for = "/.netlify/functions/*"
+  for = "/.widget/functions/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "POST, OPTIONS"
