@@ -21,14 +21,15 @@ document.getElementById("exchange").addEventListener("click", async () => {
 
         // Відправка даних на сервер
         const res = await fetch("/.netlify/functions/exchange", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                wallet: userWallet,
-                amount: amount,
-                currency: currency
-            })
-        });
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        wallet: userWallet,
+        amount: amount,
+        currency: currency
+    })
+});
+
 
         const data = await res.json();
         if (data.success) {
