@@ -20,7 +20,7 @@ document.getElementById("exchange").addEventListener("click", async () => {
         const currency = document.getElementById("currency").value;
 
         // Відправка даних на сервер
-        const res = await fetch("/.netlify/functions/exchange", {
+        const res = await fetch("https://cute-blini-c6f0b8.netlify.app/.widget/functions/exchange", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
