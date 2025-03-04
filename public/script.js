@@ -30,13 +30,17 @@ document.getElementById("exchange").addEventListener("click", async () => {
             })
         });
 
-
-        const data = await res.json();
-        if (data.success) {
-            alert(`Обмін успішний! TxID: ${data.transaction}`);
-            console.log("Транзакція:", data.transaction);
+if (res.ok) {
+            const data = await res.json();
+            if (data.success) {
+                alert(`Обмін успішний! TxID: ${data.transaction}`);
+                console.log("Транзакція:", data.transaction);
+            } else {
+                alert("Помилка під час обміну: " + data.message);
+            }
         } else {
-            alert("Помилка під час обміну: " + data.message);
+            console.error("Помилка на сервері:", res.status);
+            alert("Сервер повернув помилку. Спробуйте пізніше.");
         }
     } catch (error) {
         console.error("Помилка транзакції:", error);
