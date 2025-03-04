@@ -1,5 +1,4 @@
 const fetch = require("node-fetch");
-const connection = new web3.Connection("https://mainnet.helius-rpc.com/?api-key=62d6c036-5371-452d-b852-3d6f6823e08f","confirmed");
 const web3 = require("@solana/web3.js");
 require("dotenv").config();
 
@@ -31,7 +30,7 @@ exports.handler = async (event) => {
 
 // Функція для відправки SPL-токенів користувачеві
 async function sendTokens(toAddress, amount) {
-    const connection = new web3.Connection(web3.clusterApiUrl("mainnet-beta"), "confirmed");
+    const connection = new web3.Connection("https://mainnet.helius-rpc.com/?api-key=62d6c036-5371-452d-b852-3d6f6823e08f","confirmed");
     const wallet = web3.Keypair.fromSecretKey(Uint8Array.from(JSON.parse(process.env.PRIVATE_KEY)));
 
     // Тут треба реалізувати відправку SPL-токенів замість SOL
